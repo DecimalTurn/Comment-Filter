@@ -1,4 +1,4 @@
-# comment-filter
+# Comment-Filter
 GitHub Action to filter comment for suspicious content.
 
 Example worflow:

@@ -26,3 +26,7 @@ jobs:
 ### Is the action fast enough to alter the content of the notification email?
 
 Yes, normally the action will be fast enough to change the content of the comment before it gets picked up by the GitHub background job in charge of sending the email notification ([Demo](https://github.com/DecimalTurn/Comment-Filter-Demo/issues/1#issuecomment-2315663776)).
+
+## Contributing
+
+Contributions to this project (such as pull requests, bug reports, etc.) are welcomed! :octocat:

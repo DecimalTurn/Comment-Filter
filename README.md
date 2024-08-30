@@ -19,8 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Comment filter
-      uses: DecimalTurn/Comment-Filter@5ab6948d08be719961eac47fad2b2a91a06fc4c9 #v0.1.0
+      uses: DecimalTurn/Comment-Filter@main
 ```
+By using the version from the `main` branch, you make sure to always have the most up-to-date rules for the filter.
+
+
 ## FAQ
 
 ### Is the action fast enough to alter the content of the notification email?
@@ -30,3 +33,4 @@ Yes, normally the action will be fast enough to change the content of the commen
 ## Contributing
 
 Contributions to this project (such as pull requests, bug reports, etc.) are welcomed! :octocat:
+If you do, please make your PR against the `dev` branch.

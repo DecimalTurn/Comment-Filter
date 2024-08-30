@@ -19,9 +19,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Comment filter
-      uses: DecimalTurn/Comment-Filter@main
+      uses: DecimalTurn/Comment-Filter@v0
 ```
-By using the version from the `main` branch, you make sure to always have the most up-to-date rules for the filter.
+By using the version with the `v0` tag, you make sure to always have the most up-to-date rules for the filter.
 
 
 ## FAQ

@@ -21,17 +21,17 @@ runs:
           const regexReplacements = [
             // File sharing websites (general)
             {
-              pattern: /https?:\/\/(www\.)?(box|dropbox|mediafire|sugarsync|tresorit|hightail|opentext|sharefile|citrixsharefile|icloud|onedrive|1drv)\.com\/[^\s\)]+/g,
+              pattern: /(https?:\/\/)?(www\.)?(box|dropbox|mediafire|sugarsync|tresorit|hightail|opentext|sharefile|citrixsharefile|icloud|onedrive|1drv)\.com\/[^\s\)]+/g,
               replacement: '[Link removed for safety reasons]'
             },
             // Google Drive (needs to match subdomain)
             {
-              pattern: /https?:\/\/drive\.google\.com\/[^\s\)]+/g,
+              pattern: /(https?:\/\/)?drive\.google\.com\/[^\s\)]+/g,
               replacement: '[Link removed for safety reasons]'
             },
             // Link shorteners
             {
-              pattern: /https?:\/\/(www\.)?(bit\.ly|t\.co|tinyurl\.com|goo\.gl|ow\.ly|buff\.ly|is\.gd|soo\.gd|t2mio|bl\.ink|clck\.ru|shorte\.st|cutt\.ly|v\.gd|qr\.ae|rb\.gy|rebrand\.ly|tr\.im|shorturl\.at|lnkd\.in)\/[^\s\)]+/g,
+              pattern: /(https?:\/\/)?(www\.)?(bit\.ly|t\.co|tinyurl\.com|goo\.gl|ow\.ly|buff\.ly|is\.gd|soo\.gd|t2mio|bl\.ink|clck\.ru|shorte\.st|cutt\.ly|v\.gd|qr\.ae|rb\.gy|rebrand\.ly|tr\.im|shorturl\.at|lnkd\.in)\/[^\s\)]+/g,
               replacement: '[Shortened link removed for safety reasons]'
             },
             // Add more as needed

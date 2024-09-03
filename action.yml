@@ -21,26 +21,27 @@ runs:
           const regexReplacements = [
             // File sharing websites (general)
             {
-              pattern: /(https?:\/\/)?(www\.)?(box|dropbox|mediafire|sugarsync|tresorit|hightail|opentext|sharefile|citrixsharefile|icloud|onedrive|1drv)\.com\/[^\s\)]+/g,
+              pattern: /(https?:\/\/)?(www\.)?(box|dropbox|mediafire|sugarsync|tresorit|hightail|opentext|sharefile|citrixsharefile|icloud|onedrive|1drv)\.com\/[^\s\)]+/gi,
               replacement: '[Link removed for safety reasons]'
             },
             // Google Drive
             {
-              pattern: /(https?:\/\/)?drive\.google\.com\/[^\s\)]+/g,
+              pattern: /(https?:\/\/)?drive\.google\.com\/[^\s\)]+/gi,
               replacement: '[Link removed for safety reasons]'
             },
             // Discord CDN
             {
-              pattern: /(https?:\/\/)?cdn\.discordapp\.com\/[^\s\)]+/g,
+              pattern: /(https?:\/\/)?cdn\.discordapp\.com\/[^\s\)]+/gi,
               replacement: '[Link removed for safety reasons]'
             },
             // Link shorteners
             {
-              pattern: /(https?:\/\/)?(www\.)?(bit\.ly|t\.co|tinyurl\.com|goo\.gl|ow\.ly|buff\.ly|is\.gd|soo\.gd|t2mio|bl\.ink|clck\.ru|shorte\.st|cutt\.ly|v\.gd|qr\.ae|rb\.gy|rebrand\.ly|tr\.im|shorturl\.at|lnkd\.in)\/[^\s\)]+/g,
+              pattern: /(https?:\/\/)?(www\.)?(bit\.ly|t\.co|tinyurl\.com|goo\.gl|ow\.ly|buff\.ly|is\.gd|soo\.gd|t2mio|bl\.ink|clck\.ru|shorte\.st|cutt\.ly|v\.gd|qr\.ae|rb\.gy|rebrand\.ly|tr\.im|shorturl\.at|lnkd\.in)\/[^\s\)]+/gi,
               replacement: '[Shortened link removed for safety reasons]'
             },
+            // IP addresses
             {
-              pattern: /(https?:\/\/)?(\d{1,3}\.){3}\d{1,3}(:\d+)?(\/[^\s\)]*)?/g,
+              pattern: /(https?:\/\/)?(\d{1,3}\.){3}\d{1,3}(:\d+)?(\/[^\s\)]*)?/gi,
               replacement: '[IP address link removed for safety reasons]'
             },
           ];

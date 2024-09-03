@@ -39,6 +39,10 @@ runs:
               pattern: /(https?:\/\/)?(www\.)?(bit\.ly|t\.co|tinyurl\.com|goo\.gl|ow\.ly|buff\.ly|is\.gd|soo\.gd|t2mio|bl\.ink|clck\.ru|shorte\.st|cutt\.ly|v\.gd|qr\.ae|rb\.gy|rebrand\.ly|tr\.im|shorturl\.at|lnkd\.in)\/[^\s\)]+/g,
               replacement: '[Shortened link removed for safety reasons]'
             },
+            {
+              pattern: /(https?:\/\/)?(\d{1,3}\.){3}\d{1,3}(:\d+)?(\/[^\s\)]*)?/g,
+              replacement: '[IP address link removed for safety reasons]'
+            },
           ];
 
           // Iterate through each regex and replace matches in the comment body

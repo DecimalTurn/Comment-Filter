@@ -29,6 +29,11 @@ runs:
               pattern: /(https?:\/\/)?drive\.google\.com\/[^\s\)]+/gi,
               replacement: '[Link removed for safety reasons]'
             },
+            // Gofile.io
+            {
+              pattern: /(https?:\/\/)?(www\.)?gofile\.io\/[^\s\)]+/gi,
+              replacement: '[Link removed for safety reasons]'
+            },
             // Discord CDN
             {
               pattern: /(https?:\/\/)?cdn\.discordapp\.com\/[^\s\)]+/gi,

@@ -41,7 +41,7 @@ runs:
             },
             // Link shorteners
             {
-              pattern: /(https?:\/\/)?(www\.)?(bit\.ly|t\.co|tinyurl\.com|goo\.gl|ow\.ly|buff\.ly|is\.gd|soo\.gd|t2mio|bl\.ink|clck\.ru|shorte\.st|cutt\.ly|v\.gd|qr\.ae|rb\.gy|rebrand\.ly|tr\.im|shorturl\.at|lnkd\.in)\/[^\s\)]+/gi,
+              pattern: /(https?:\/\/)?(www\.)?(bit\.ly|t\.co|tinyurl\.com|goo\.gl|ow\.ly|buff\.ly|is\.gd|soo\.gd|t2mio|bl\.ink|clck\.ru|shorte\.st|cutt\.ly|v\.gd|qr\.ae|rb\.gy|rebrand\.ly|tr\.im|shorturl\.at|lnkd\.in|a4z\.in)\/[^\s\)]+/gi,
               replacement: '[Shortened link removed for safety reasons]'
             },
             // IP addresses

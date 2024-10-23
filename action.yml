@@ -3,6 +3,11 @@ description: 'GitHub Action to filter comments for suspicious content.'
 branding:
   icon: "crosshair"
   color: "red"
+inputs:
+  exclude-contributors:
+    description: 'Exclude contributors from filtering'
+    required: false
+    default: 'false'
 runs:
   using: 'composite'
   steps:
@@ -13,9 +18,10 @@ runs:
           const comment = context.payload.comment
           const { owner, repo } = context.repo
 
-          console.log('Repository owner:', owner)
-          console.log('Repository name:', repo)
-          console.log('Comment body:', comment.body)
+          // Extra logging for debugging
+          //console.log('Repository owner:', owner)
+          //console.log('Repository name:', repo)
+          //console.log('Comment body:', comment.body)
 
           // Array of regex patterns and their replacements
           const regexReplacements = [
@@ -61,16 +67,33 @@ runs:
           });
 
           // If the comment body was updated, edit the comment
-          if (updatedBody !== comment.body) {
-            console.log('Updated comment body:', updatedBody);
-
-            // Edit the comment with the updated body
-            await github.rest.issues.updateComment({
-              owner: owner,
-              repo: repo,
-              comment_id: comment.id,
-              body: updatedBody
-            });
-          } else {
+          if (updatedBody === comment.body) {
             console.log('No suspicious links found.')
+            return
           }
+
+          const excludeContributors = ${{ inputs.exclude-contributors }}; 
+          if (excludeContributors) {
+            const contributors = await github.rest.repos.listContributors({
+              owner: owner,
+              repo: repo
+            });
+            if (contributors.data.some(contributor => contributor.login === comment.user.login)) {
+              console.log('User is a contributor. Skipping comment filtering.')
+              return
+            }
+          }
+
+          // Extra logging for debugging  
+          //console.log('Updated comment body:', updatedBody);
+
+          // Edit the comment with the updated body
+          await github.rest.issues.updateComment({
+            owner: owner,
+            repo: repo,
+            comment_id: comment.id,
+            body: updatedBody
+          });
+
+          console.log('Comment edited successfully.');
+

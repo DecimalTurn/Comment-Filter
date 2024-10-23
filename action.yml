@@ -19,9 +19,9 @@ runs:
           const { owner, repo } = context.repo
 
           // Extra logging for debugging
-          //console.log('Repository owner:', owner)
-          //console.log('Repository name:', repo)
-          //console.log('Comment body:', comment.body)
+          console.log('Repository owner:', owner)
+          console.log('Repository name:', repo)
+          console.log('Comment body:', comment.body)
 
           // Array of regex patterns and their replacements
           const regexReplacements = [
@@ -85,7 +85,7 @@ runs:
           }
 
           // Extra logging for debugging  
-          //console.log('Updated comment body:', updatedBody);
+          console.log('Updated comment body:', updatedBody);
 
           // Edit the comment with the updated body
           await github.rest.issues.updateComment({

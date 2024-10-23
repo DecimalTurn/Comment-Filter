@@ -57,7 +57,7 @@ runs:
             },
             // Multiple tagging of users
             {
-              pattern: /((^|\s)@[a-zA-Z][a-zA-Z]*\s.*){,4}/gi,
+              pattern: /(?:(?:^|\s)@[a-zA-Z][a-zA-Z-]*\b[^@]*){4,}/gims,
               replacement: '[Comment removed because it was tagging too many users]'
             },
           ];

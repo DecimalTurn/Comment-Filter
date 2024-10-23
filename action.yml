@@ -73,7 +73,7 @@ runs:
 
           // If the comment body was updated, edit the comment
           if (updatedBody === comment.body) {
-            console.log('No suspicious links found.')
+            console.log('No suspicious content found.')
             return
           }
 

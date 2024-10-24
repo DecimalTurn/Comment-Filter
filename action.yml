@@ -90,7 +90,7 @@ runs:
           }
 
           // Extra logging for debugging  
-          //console.log('Updated comment body:', updatedBody);
+          console.log('Updated comment body:\n', updatedBody);
 
           // Edit the comment with the updated body
           await github.rest.issues.updateComment({

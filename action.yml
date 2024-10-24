@@ -55,6 +55,11 @@ runs:
               pattern: /(https?:\/\/)?(\d{1,3}\.){3}\d{1,3}(:\d+)?(\/[^\s\)]*)?/gi,
               replacement: '[IP address link removed for safety reasons]'
             },
+            // Multiple tagging of users
+            {
+              pattern: /(?:(?:^|\s)@[a-zA-Z][a-zA-Z-]*\b[^@]*){4,}/gims,
+              replacement: '[Comment removed because it was tagging too many users]'
+            },
           ];
 
           // Iterate through each regex and replace matches in the comment body
@@ -68,7 +73,7 @@ runs:
 
           // If the comment body was updated, edit the comment
           if (updatedBody === comment.body) {
-            console.log('No suspicious links found.')
+            console.log('No suspicious content found.')
             return
           }
 
@@ -85,7 +90,7 @@ runs:
           }
 
           // Extra logging for debugging  
-          //console.log('Updated comment body:', updatedBody);
+          console.log('Updated comment body:\n', updatedBody);
 
           // Edit the comment with the updated body
           await github.rest.issues.updateComment({

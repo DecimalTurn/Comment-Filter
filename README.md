@@ -20,6 +20,8 @@ jobs:
     steps:
     - name: Comment filter
       uses: DecimalTurn/Comment-Filter@v0
+      with:
+        exclude-contributors: false
 ```
 By using the version with the `v0` tag, you make sure to always have the most up-to-date rules for the filter.
 

@@ -12,7 +12,9 @@ runs:
   using: 'composite'
   steps:
     - name: Remove suspicious links from issue comments
-      uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+      uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+      env:
+        EXCLUDE_CONTRIBUTORS: ${{ inputs.exclude-contributors }}
       with:
         script: |
           const comment = context.payload.comment
@@ -77,7 +79,7 @@ runs:
             return
           }
 
-          const excludeContributors = ${{ inputs.exclude-contributors }}; 
+          const excludeContributors = process.env.EXCLUDE_CONTRIBUTORS === 'true';
           if (excludeContributors) {
             const contributors = await github.rest.repos.listContributors({
               owner: owner,
@@ -89,7 +91,7 @@ runs:
             }
           }
 
-          // Extra logging for debugging  
+          // Extra logging for debugging
           console.log('Updated comment body:\n', updatedBody);
 
           // Edit the comment with the updated body
